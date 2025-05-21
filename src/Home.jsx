@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 function Home() {
     const users=useSelector(state=>state.users)
@@ -28,9 +29,9 @@ function Home() {
     <div className="p-4">
   <div className="flex justify-between items-center mb-4">
     <h2 className="text-xl font-bold">User List</h2>
-    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+    <Link to="/creat"  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
       Add User
-    </button>
+    </Link >
   </div>
 
   <div className="overflow-x-auto shadow rounded-lg">

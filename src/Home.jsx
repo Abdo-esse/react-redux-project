@@ -4,6 +4,25 @@ import { useSelector } from 'react-redux'
 function Home() {
     const users=useSelector(state=>state.users)
     console.log(users);
+    const displaysers=()=>{
+      return users.map((user,key)=>{
+        return(
+        <tr key={key} className="hover:bg-gray-50">
+          <td className="px-6 py-4 text-sm">{user.id}</td>
+          <td className="px-6 py-4 text-sm">{user.name}</td>
+          <td className="px-6 py-4 text-sm">{user.email}</td>
+          <td className="px-6 py-4 text-sm space-x-2">
+            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
+              Update
+            </button>
+            <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
+              Delete
+            </button>
+          </td>
+        </tr>
+      )
+      })
+    }
     
   return (
     <div className="p-4">
@@ -25,19 +44,8 @@ function Home() {
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-100">
-        <tr className="hover:bg-gray-50">
-          <td className="px-6 py-4 text-sm">1</td>
-          <td className="px-6 py-4 text-sm">Alice</td>
-          <td className="px-6 py-4 text-sm">alice@email.com</td>
-          <td className="px-6 py-4 text-sm space-x-2">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
-              Update
-            </button>
-            <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
-              Delete
-            </button>
-          </td>
-        </tr>
+
+        {displaysers()}
         
       </tbody>
     </table>

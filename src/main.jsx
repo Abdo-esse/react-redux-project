@@ -13,7 +13,7 @@ const store=configureStore({
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider >
+    <Provider  store={store}>
     <App />
     </Provider>
   </StrictMode>,

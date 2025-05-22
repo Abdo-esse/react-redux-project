@@ -13,12 +13,12 @@ function Home() {
           <td className="px-6 py-4 text-sm">{user.name}</td>
           <td className="px-6 py-4 text-sm">{user.email}</td>
           <td className="px-6 py-4 text-sm space-x-2">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
+            <Link to={`/update/${user.id}`} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
               Update
-            </button>
-            <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
+            </Link>
+            <Link to={`/delete/${user.id}`} className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
               Delete
-            </button>
+            </Link>
           </td>
         </tr>
       )

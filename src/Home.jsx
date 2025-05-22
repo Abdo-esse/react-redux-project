@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 function Home() {
+  
     const users=useSelector(state=>state.users)
-    console.log(users);
     const displaysers=()=>{
       return users.map((user,key)=>{
         return(

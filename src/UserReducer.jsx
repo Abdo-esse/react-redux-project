@@ -6,11 +6,16 @@ const userSlice=createSlice({
     initialState: userList ,
     reducers:{
         addUser:(state,action)=>{
-            state.push(action.payload)
-                       
+            state.push(action.payload)    
+        },
+        updateUser:(state,action)=>{
+           const user= state.find(user=>user.id===parseInt(action.payload.id))
+           user.email=action.payload.email;
+           user.name=action.payload.name
+           
         }
     }
 })
 
-export const {addUser}=userSlice.actions
+export const {addUser,updateUser}=userSlice.actions
 export default userSlice.reducer

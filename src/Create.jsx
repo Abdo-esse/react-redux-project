@@ -13,7 +13,7 @@ function Create() {
     e.preventDefault();
     dispatch(addUser(
       {
-        id:users.at(-1).id+1,
+        id: users.length > 0 ? users.at(-1).id + 1 : 1,
         name:inputName.current.value,
         email:inputEmail.current.value
       }

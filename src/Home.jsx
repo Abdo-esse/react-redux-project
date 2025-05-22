@@ -1,10 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { deleteUser } from './UserReducer';
 
 function Home() {
   
     const users=useSelector(state=>state.users)
+    const dispath=useDispatch();
     const displaysers=()=>{
       return users.map((user,key)=>{
         return(
@@ -16,13 +18,20 @@ function Home() {
             <Link to={`/update/${user.id}`} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
               Update
             </Link>
-            <Link to={`/delete/${user.id}`} className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
+            <button onClick={()=>handledelete(user.id)} className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
               Delete
-            </Link>
+            </button>
           </td>
         </tr>
       )
       })
+    }
+
+    const handledelete=(id)=>{
+      dispath(deleteUser({
+        id:id
+      }))
+      
     }
     
   return (
